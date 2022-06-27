@@ -1,6 +1,6 @@
 # pre-miniproject
 
-- 웹으로 이용가능한 미니 게임 모음 페이지입니다.
+- TO DO LIST 웹페이지입니다.
 - 언어는 Javascript 사용합니다.
 
 ## 구성원
