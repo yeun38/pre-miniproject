@@ -1,0 +1,71 @@
+<%- include('./partial/header') -%>
+
+<div class="wrap">
+
+    <%- include('./partial/gnb') -%>
+    <%- include('./partial/weather') -%>
+
+    <section class="main-page">
+        <!-- <input type="hidden" id="0000000"> -->
+        <div class="real-time" id="time">
+            0000.00.00 pm 00:00
+        </div>
+        <form class="list-form">
+            <div class="list-row">
+                <h1>To Do List</h1>
+            </div>
+            <div class="list-row">
+                <a class="role-btn">
+                    전체보기
+                </a>
+                <a class="role-btn">
+                    날짜로 보기
+                </a>
+            </div>
+        </form>
+        <form class="list-form">
+            <div class="list-row">
+                <input type="text" name="text" placeholder="새로운 리스트를 입력하세요." autofocus class="input_text">
+                <input type="file" name="img" id="file" class="hidden">
+                <label for="file">이미지 업로드</label>
+                <input type="date" name="date">
+            </div>
+            <div class="list-row">
+                <button class="role-btn">
+                    입력하기
+                </button>
+            </div>
+        </form>
+        <!-- <form action="/search" method="post" class="list-form"> -->
+        <form class="list-form">
+            <div class="list-row search-box">
+                <input type="text" class="search" name="search" placeholder="검색하기">
+                <button class="search-btn role-btn">🔍</button>
+            </div>
+        </form>
+        <div class="list-container">
+            <ul>
+                <% for(let i=0; i<6; i++){ %>
+                <li<%= (i==0)?' class=pic':'' %>>
+                    <span class="text">
+                        <%= "Lorem ipsum".repeat((i % 3)+1) %>
+                    </span>
+                    <div class="right">
+                        <span class="time">00-00-00</span>
+                        <span class="delete role-btn">X</span>
+                    </div>
+                    </li>
+                    <% if(i==0){ %>
+                    <li class="li-image-box">
+                        <div style="width: 100px; height: 100px; background-color: #ddd;"></div>
+                        <div style="width: 100px; height: 100px; background-color: #ddd;"></div>
+                        <div style="width: 100px; height: 100px; background-color: #ddd;"></div>
+                    </li>
+                    <% } %>
+                    <% } %>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<%- include('./partial/footer') -%>
