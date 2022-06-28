@@ -6,11 +6,25 @@ a {
     color: inherit;
     text-decoration: none;
 }
+a:hover,
+.wrap label:hover,
+.role-btn:hover {
+    color: rgb(82, 116, 196);
+}
 li, ul {
     text-decoration: none;
     list-style: none;
     padding: 0;
     margin: 0;
+}
+.contents-area {
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    margin: 0 auto;
+}
+*::placeholder {
+    text-align: center;
 }
 /*  */
 header {
@@ -18,12 +32,9 @@ header {
     padding: 0 2em;
     background-color: #ddd;
 }
-.contents_area {
-    width: 100%;
-    max-width: 1000px;
+header .contents-area {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 header a {
     display: inline-block;
@@ -31,25 +42,32 @@ header a {
     line-height: 80px;
     padding: 0 8px;
 }
+.logo {
+    font-weight: 900;
+    font-size: 1.5em;
+}
 /* 메인페이지 */
 .main-page {
-    width: 90%;
+    width: 100%;
     max-width: 500px;
-    margin: 30px auto;
+    padding: 0 10px;
+    margin: 0 auto;
     text-align: center;
     position: relative;
-}
-.main-page * {
-    border-radius: 0 11px 0 11px;
 }
 .real-time {
     padding: 20px 0;
     background: #222;
     color: #fff;
+    margin-top: 20px;
     margin-bottom: 30px;
     font-size: 30px;
     font-weight: 800;
     box-shadow: 2px 2px 3px #aaa;
+}
+.main-title {
+    font-size: 1.6em;
+    padding: 8px 0;
 }
 .list-form {
     margin-bottom: 20px;
@@ -99,10 +117,6 @@ header a {
     top: 0;
     z-index: 9;
 }
-.input_text::placeholder,
-.search::placeholder {
-    text-align: center;
-}
 .list-container li:first-child {
     border-top: 1px dotted #aaa;
 }
@@ -150,7 +164,28 @@ li.pic > div:last-child::after {
     height: auto;
     overflow: hidden;
 }
-@media (max-width: 400px) {
+.list-container .li-image-box {
+    display: none;
+}
+.list-container .li-image-box.active {
+    display: flex;
+}
+.li-image-box * {
+    display: block;
+    flex: 1 1 auto;
+    height: 120px;
+    border-radius: 10px;
+    background-color: #ddd;
+}
+@media (max-width: 500px) {
+    header,
+    header a {
+        height: 45px;
+        line-height: 45px;
+    }
+    header {
+        padding: 0 10px;
+    }
     li,
     .list-row {
         flex-wrap: wrap;
