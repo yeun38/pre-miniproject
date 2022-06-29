@@ -2,7 +2,7 @@
 :root {
     --main-bgColor: #fffefe;
     --main-color: #f9ecc9;
-    --second-color: #dbe6d1;
+    --second-color: #80abf6;
     --accent-color: #5274c4;
     --box-shadow: 2px 2px 5px rgba(33, 41, 79, 0.245), -2px -2px 5px rgba(135, 111, 111, 0.124);
     --border-bottomDotted: 1px dotted #aaa;
@@ -55,6 +55,11 @@ li, ul {
 .title {
     margin-bottom: 30px;
 }
+section {
+    padding-top: 8%;
+    padding-left: 1em;
+    padding-right: 1em;
+}
 /* 리스트 스타일 */
 .list-form {
     margin-bottom: 10px;
@@ -69,6 +74,8 @@ li, ul {
     width: 100%;
     line-height: 2;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .list-row > * {
     background-color: #fff;
@@ -104,9 +111,10 @@ input {
 .role-btn:hover {
     box-shadow: var(--box-shadow);
 }
+.btn-submit,
 .wrap form input[type=submit]{
     background: var(--accent-color);
-    color: #fff;
+    color: #fff !important;
 }
 /* 부트스트랩 수정 */
 .form-control {
