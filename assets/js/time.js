@@ -1,4 +1,4 @@
-const time_el = document.getElementById('time');
+const time_el = document.querySelector('.real-time .textContent');
 const time_reset_by = 30 * 1000
 function getTime(){
     const date = new Date();
