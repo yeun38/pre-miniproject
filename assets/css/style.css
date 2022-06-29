@@ -26,6 +26,9 @@ li, ul {
 *::placeholder {
     text-align: center;
 }
+.show-at-sm {
+    display: none;
+}
 /*  */
 header {
     height: 80px;
@@ -176,6 +179,11 @@ li.pic > div:last-child::after {
     height: 120px;
     border-radius: 10px;
     background-color: #ddd;
+}
+@media (max-width: 500px) {
+    .show-at-sm {
+        display: block;
+    }
 }
 @media (max-width: 500px) {
     header,
