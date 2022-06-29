@@ -23,36 +23,6 @@
     font-size: 1.6em;
     padding: 8px 0;
 }
-.list-form {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-radius: 8px;
-    overflow: hidden;
-}
-.list-form:last-of-type {
-    margin-bottom: 40px;
-}
-.list-row {
-    width: 100%;
-    line-height: 2;
-    display: flex;
-}
-.list-row > * {
-    flex: 1 1 auto;
-    border: 0px solid #aaa;
-    background-color: #fff;
-    box-sizing: border-box;
-}
-.list-row input {
-    outline: none;
-    border: 2px solid #aaa;
-
-}
-.list-row h1 {
-    font-size: 2em;
-    padding: 20px 0 25px 0;
-    margin: 0 0 5px 0;
-}
 .search {
     height: 34px;
 }
@@ -69,6 +39,9 @@
     right: 0px;
     top: 0;
     z-index: 9;
+}
+.list-row > * {
+    flex: 1 1 auto;
 }
 .list-container li:first-child {
     border-top: var(--border-bottomDotted);
@@ -92,14 +65,26 @@
     align-items: center;
     position: relative;
 }
-@media (max-width: 380px) {
-    .list-container li > div:last-child {
-        flex: 1 1 100%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        position: relative;
-    }
+/* 버튼 */
+.wrap label,
+.role-btn {
+    display: block;
+    margin: 5px;
+    padding: 5px 0;
+    border-radius: 16px;
+
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1.6;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.wrap label:hover,
+.role-btn:hover {
+    box-shadow: var(--box-shadow);
 }
 .list-container .role-btn {
     padding: 0 5px;
@@ -133,26 +118,12 @@ li.pic {
     border-radius: 10px;
     background-color: #ddd;
 }
-@media (max-width: 500px) {
-    .show-at-sm {
-        display: block;
+@media (max-width: 380px) {
+    .list-container li > div:last-child {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
     }
-    li,
-    .list-row {
-        flex-wrap: wrap;
-    }
-    input {
-        min-height: 34px;
-    }
-    .input_text {
-        width: 100%;
-    }
-    .show-at-lg {
-        display: none;
-    }
-}
-@keyframes blink {
-    0% {opacity: 1;}
-    20% {opacity: 0.4;}
-    40% {opacity: 1;}
 }
