@@ -21,13 +21,18 @@
   </head>
 
   <body>
-    <form action="#" method="post">
+    <form>
       <h1>join</h1>
       <p><label for="name">이름 : </label><input type="text" id="name" /></p>
       <p>
         <label for="email">이메일 : </label
-        ><input type="email" id="email" name="useremail" />
-        <input type="submit" onclick="emailcheck()" value="확인" />
+        ><input
+          type="email"
+          id="email"
+          name="useremail"
+          onchange="emailcheck()"
+        />
+        <button>확인</button>
       </p>
       <p>
         <label for="pw">비밀번호 : </label><input type="password" id="pw" />
