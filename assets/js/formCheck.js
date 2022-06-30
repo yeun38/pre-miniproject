@@ -27,9 +27,16 @@ function pwCheck(){
 }
 function fileChange(){
   const fileInput = document.querySelector('.fileInput');
-  // console.log(fileInput.files[0].name)
-
   const fileName = document.querySelector('.file-name');
-  fileName.textContent = fileInput.files[0].name;
-  fileName.classList.remove('empty-text')
+  fileName.textContent=""
+  if(fileInput.files.length > 3){
+    return alert('이미지 업로드는 3장까지 가능합니다.')
+  }
+  const files=Array.from(fileInput.files)
+  files.forEach((e, idx)=>{
+    if(idx > 0){
+      fileName.innerHTML += "<br>"
+    }
+    fileName.innerHTML += e.name+" ";
+  })
 }

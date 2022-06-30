@@ -114,6 +114,9 @@ li.pic .right {
     position: relative;
     height: 20px;
 }
+.info-text {
+    min-height: 55px;
+}
 /*  */
 @media (max-width: 380px) {
     .list-container li > div:last-child {

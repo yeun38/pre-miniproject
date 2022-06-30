@@ -96,7 +96,12 @@
                         <input id="date" type="text" name="create_at" placeholder="날짜 입력" class="form-control">
                         <input type="text" name="title" placeholder="새로운 리스트를 입력하세요." class="input_text form-control"
                             autocomplete="off">
-                        <input type="file" name="img_path" id="file" class="fileInput hidden" onchange="fileChange()">
+                        <input 
+                            type="file" 
+                            name="img_path" 
+                            id="file" 
+                            class="fileInput hidden" onchange="fileChange()"
+                            multiple>
                         <label for="file">이미지 업로드</label>
                     </div>
                     <div class="list-row">
@@ -104,7 +109,9 @@
                             입력하기
                         </button>
                     </div>
-                    <span class="file-name info-text empty-text">파일이름</span>
+                    <span class="file-name info-text">
+                        이미지 업로드는 3장까지 가능합니다.
+                    </span>
                 </form>
                 <form class="list-form contents-area">
                     <div class="list-row search-box">
