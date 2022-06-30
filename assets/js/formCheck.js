@@ -44,14 +44,16 @@ function fileChange(){
 
 
 function filePreview(file){
-  let reader = new FileReader();
-  const imgPreview = document.querySelector('.img-preview');
-  // console.log(imgPreview.style.backgroundImage);
-  console.log(imgPreview);
-
-  console.log(reader);
-  reader.onload=(e)=>{
-    imgPreview.src = e.target.result;
+  if(document.querySelector('.img-preview')){
+    let reader = new FileReader();
+    const imgPreview = document.querySelector('.img-preview');
+    // console.log(imgPreview.style.backgroundImage);
+    console.log(imgPreview);
+  
+    console.log(reader);
+    reader.onload=(e)=>{
+      imgPreview.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
   }
-  reader.readAsDataURL(file);
 }
