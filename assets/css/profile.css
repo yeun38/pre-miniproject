@@ -12,8 +12,12 @@ section .contents-area {
 .list-row {
     justify-content: center;
 }
-.img-over {
+.profile .left.img-over {
     position: relative;
+    margin-bottom: 2em;
+}
+.img-over img {
+    border-radius: 10px;
 }
 .img-over-text {
     width: 100%;
