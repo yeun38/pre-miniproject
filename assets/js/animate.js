@@ -16,7 +16,6 @@ let h_top = header.offsetTop;
 const wrap = document.querySelector('.wrap');
 const weather = document.querySelector('#weather');
 let w_o_top = weather.scrollTop;
-console.log(weather);
 
 window.onscroll = function () {
     header_sticky()

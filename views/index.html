@@ -93,10 +93,10 @@
                 </div>
                 <form class="list-form contents-area">
                     <div class="list-row">
-                        <input id="date" type="text" name="date" placeholder="날짜 입력" class="form-control">
-                        <input type="text" name="text" placeholder="새로운 리스트를 입력하세요." class="input_text form-control"
+                        <input id="date" type="text" name="create_at" placeholder="날짜 입력" class="form-control">
+                        <input type="text" name="title" placeholder="새로운 리스트를 입력하세요." class="input_text form-control"
                             autocomplete="off">
-                        <input type="file" name="img" id="file" class="hidden">
+                        <input type="file" name="img_path" id="file" class="fileInput hidden" onchange="fileChange()">
                         <label for="file">이미지 업로드</label>
                     </div>
                     <div class="list-row">
@@ -104,6 +104,7 @@
                             입력하기
                         </button>
                     </div>
+                    <span class="file-name info-text empty-text">파일이름</span>
                 </form>
                 <form class="list-form contents-area">
                     <div class="list-row search-box">
@@ -192,6 +193,9 @@
     <script src="../assets/js/animate.js"></script>
     <script src="../assets/js/calender.js"></script>
     <script src="../assets/js/weather.js"></script>
+    <script src="../assets/js/formCheck.js"></script>
+    <!--  -->
+    <script src="../assets/js/main.js"></script>
 
 </body>
 

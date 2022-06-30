@@ -39,6 +39,7 @@
     right: 0px;
     top: 0;
     z-index: 9;
+    line-height: 0;
 }
 .list-row > * {
     flex: 1 1 auto;

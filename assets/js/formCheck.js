@@ -25,3 +25,11 @@ function pwCheck(){
     pw_wrong.classList.remove('hidden')
   }
 }
+function fileChange(){
+  const fileInput = document.querySelector('.fileInput');
+  // console.log(fileInput.files[0].name)
+
+  const fileName = document.querySelector('.file-name');
+  fileName.textContent = fileInput.files[0].name;
+  fileName.classList.remove('empty-text')
+}

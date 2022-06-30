@@ -46,6 +46,12 @@ li, ul {
 .hidden {
     display: none;
 }
+.info-text {
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: #555;
+}
 .empty-text {
     color: transparent;
 }
@@ -135,6 +141,9 @@ input {
     background: #eee !important;
     border: none !important;
 }
+.dropdown-menu {
+    box-shadow: var(--box-shadow);
+}
 .dropdown-menu.show {
     width: 100%;
     min-height: 120px;
@@ -149,6 +158,9 @@ input {
     gap: 10px;
 
     border-bottom: var(--border-bottomDotted);
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: inherit;
 }
 .dropdown-menu.show img {
     display: block;
