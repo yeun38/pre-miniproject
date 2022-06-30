@@ -65,42 +65,42 @@
       </div>
   </header>
   <section class="profile contents-area">
-    <form action="/profile" method="post" class="list-form">
-      <h1 class="title">
-        profile
-      </h1>
+    <h1 class="title">
+      profile
+    </h1>
+    <form class="list-form">
       <div class="list-row">
-        <label for="formFile" class="left img-over">프로필 이미지:
-          <img src="http://via.placeholder.com/150" alt="이미지">
-          <span class="img-over-text">클릭해서 <br>수정하세요.</span>
-        </label>
-        <input class="form-control hidden" type="file" id="formFile" />
-      </div>
-      <div class="list-row">
-        <label for="name" class="left">이름 : </label>
-        <input type="text" id="name" name="name" class="form-control" autocomplete="off" />
-      </div>
-      <div class="list-row">
-        <label for="email" class="left">
-          이메일 :
-        </label>
-        <input type="email" id="email" name="email" onchange="emailCheck()" class="form-control" autocomplete="off" />
-      </div>
-      <div style="text-align: center;">
-        <span class="email-wrong hidden" style="font-size: 8px;"></span>
-      </div>
-      <div class="list-row">
-        <label for="pw" class="left">
+        <label for="pw1" class="left">
           비밀번호 :
         </label>
-        <input type="password" id="pw" class="form-control" />
+        <input type="password" id="pw1" class="form-control" placeholder="비밀번호를 입력하세요." />
       </div>
       <div class="list-row">
         <label for="pw2" class="left">
           비밀번호 확인 :
         </label>
-        <input type="password" id="pw2" class="form-control" />
-        <input type="submit" onclick="pwCheck()" value="확인" class="role-btn btn-right" />
+        <input type="password" id="pw2" class="form-control" placeholder="비밀번호를 입력하세요." />
+        <button onclick="pwCheck()" class="role-btn btn-right">
+          확인
+        </button>
+      </div>
+      <div style="text-align: center;">
+        <span class="pw-wrong hidden" style="font-size: 8px;"></span>
+      </div>
+    </form>
+    <form action="/profile" method="post" class="list-form">
+      <div class="list-row">
+        <label for="name" class="left">이름 : </label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하세요." autocomplete="off" />
+      </div>
+      <div class="list-row">
+        <label for="email" class="left">
+          이메일 :
+        </label>
+        <input type="email" id="email" name="email" onchange="emailCheck()" placeholder="이메일을 입력하세요." class="form-control" autocomplete="off" />
+      </div>
+      <div style="text-align: center;">
+        <span class="email-wrong hidden" style="font-size: 8px;"></span>
       </div>
       <div class="list-row">
         <label for="date" class="left">
@@ -109,10 +109,19 @@
         <input id="date" type="text" name="date" placeholder="날짜를 입력하세요" class="form-control">
       </div>
       <div class="list-row">
-        <input type="submit" value="회원 정보 수정" class="role-btn btn-submit" style="margin: 30px auto 0" />
+        <label for="formFile" class="left img-over btn">프로필 이미지:
+          <img src="http://via.placeholder.com/150" alt="이미지">
+          <span class="img-over-text">클릭해서 <br>수정하세요.</span>
+        </label>
+        <input class="form-control hidden" type="file" id="formFile" />
+      </div>
+      <div class="list-row">
+        <button class="role-btn btn-submit" style="margin: 30px auto 0">
+          회원 정보 수정
+        </button>
       </div>
     </form>
-  </section>
+  </div>
 
   <script src="../assets/js/calender.js"></script>
   <script src="../assets/js/formCheck.js"></script>

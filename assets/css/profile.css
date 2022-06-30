@@ -15,6 +15,11 @@ section .contents-area {
 .profile .left.img-over {
     position: relative;
     margin-bottom: 2em;
+    border: none;
+    transition: opacity .2s;
+}
+.profile .left.img-over:hover {
+    opacity: 0.8;
 }
 .img-over img {
     border-radius: 10px;
@@ -62,4 +67,11 @@ section .contents-area {
     padding: 0 15px;
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
+}
+/* .list-row .left {
+    flex: 1 1 auto;
+} */
+.list-form {
+    margin-bottom: 0;
+    padding-bottom: 0;
 }

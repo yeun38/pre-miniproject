@@ -3,15 +3,25 @@ function emailCheck() {
   const email_wrong = document.querySelector(".email-wrong");
   email_el.addEventListener("focusout", function () {
     const value = email_el.value;
-    if (value.indexOf("@") == -1) {
-      email_wrong.innerHTML="올바른 메일 형식이 아닙니다."
-      email_wrong.classList.remove('hidden')
-    } else {
+    if (value.indexOf("@") > 0) {
       email_wrong.innerHTML="";
       email_wrong.classList.add('hidden')
+    } else {
+      email_wrong.innerHTML="올바른 메일 형식이 아닙니다."
+      email_wrong.classList.remove('hidden')
     }
   });
 }
 function pwCheck(){
-
+  const pw1=document.querySelector('#pw1').value;
+  const pw2=document.querySelector('#pw2').value;
+  const pw_wrong = document.querySelector(".pw-wrong");
+  if(pw1 === pw2 && pw1.length > 0){
+    pw_wrong.classList.add('hidden')
+    // 비밀번호 수정하는 post
+    alert('동일')
+  } else {
+    pw_wrong.textContent="비밀번호를 확인해주세요."
+    pw_wrong.classList.remove('hidden')
+  }
 }
