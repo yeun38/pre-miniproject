@@ -19,7 +19,7 @@ function handleGeoError() {
 }
 
 function getWeather(lat, lon) {
-    console.log("현재 좌표: " + lat, lon);
+    // console.log("현재 좌표: " + lat, lon);
     fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
         )
@@ -36,9 +36,12 @@ function getWeather(lat, lon) {
 
             weather.innerHTML =
                 `
-            <strong>${temparature}℃</strong>
-            <img src="https://ssl.gstatic.com/onebox/weather/64/${string}.png" />`;
-
+            <strong>${temparature.toFixed(1)}℃</strong>
+            <img src="http://openweathermap.org/img/wn/${icon}@2x.png" />`;
+            
+            
+            // <img src="https://ssl.gstatic.com/onebox/weather/64/${string}.png" />
+            // <img src="http://openweathermap.org/img/wn/${icon}.png"
             // <img src="http://openweathermap.org/img/w/${icon}.png"
             // <span>도시: ${place}</span>
         });
