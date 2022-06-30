@@ -46,6 +46,9 @@ li, ul {
 .hidden {
     display: none;
 }
+.empty-text {
+    color: transparent;
+}
 .material-icons {
     padding: 0 3px;
 }
