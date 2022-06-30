@@ -109,11 +109,19 @@
         <input id="date_birth" type="text" name="date" placeholder="날짜를 입력하세요" class="form-control empty-text">
       </div>
       <div class="list-row">
-        <label for="formFile" class="left img-over btn">프로필 이미지:
-          <img src="http://via.placeholder.com/150" alt="이미지">
-          <span class="img-over-text">클릭해서 <br>수정하세요.</span>
-        </label>
-        <input class="form-control hidden" type="file" id="formFile" />
+        <div class="img-preview-box">
+          <label for="fileInput">
+            <img src="http://via.placeholder.com/150" alt="프로필 이미지" class="img-preview">
+            <span class="img-over-text file-name">클릭해서 <br>수정하세요.</span>
+          </label>
+        </div>
+
+        <!-- <label for="fileInput" class="left img-over btn">프로필 이미지:
+          <div class="img-preview">
+            <span class="img-over-text file-name">클릭해서 <br>수정하세요.</span>
+          </div>
+        </label> -->
+        <input class="form-control hidden fileInput" type="file" id="fileInput" onchange="fileChange()" />
       </div>
       <div class="list-row">
         <button class="role-btn btn-submit" style="margin: 30px auto 0">
