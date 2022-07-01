@@ -19,3 +19,16 @@ function inquire_info() {
     },
   });
 }
+
+function save_info() {
+  let profile_form = $("form[name=profile").serialize();
+
+  $.ajax({
+    type: "POST",
+    url: "/users",
+    data: { profile_form },
+    success: function (response) {
+      alert(response["msg"]);
+    },
+  });
+}

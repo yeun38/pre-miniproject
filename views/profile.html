@@ -68,7 +68,7 @@
     <h1 class="title">
       profile
     </h1>
-    <form class="list-form" name="profile">
+    <form class="list-form" name="pwedit">
       <div class="list-row">
         <label for="pw1" class="left">
           비밀번호 :
@@ -88,7 +88,7 @@
         <span class="pw-wrong hidden" style="font-size: 8px;"></span>
       </div>
     </form>
-    <form action="/profile" method="post" class="list-form">
+    <form action="/profile" method="post" class="list-form" name="profile">
       <div class="list-row">
         <label for="name" class="left">이름 : </label>
         <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하세요." autocomplete="off" />
@@ -124,7 +124,7 @@
         <input class="form-control hidden fileInput" type="file" id="fileInput" onchange="fileChange()" />
       </div>
       <div class="list-row">
-        <button class="role-btn btn-submit" style="margin: 30px auto 0">
+        <button class="role-btn btn-submit" onclick="save_info()"; style="margin: 30px auto 0">
           회원 정보 수정
         </button>
       </div>
@@ -133,6 +133,7 @@
 
   <script src="../assets/js/calender.js"></script>
   <script src="../assets/js/formCheck.js"></script>
+  <script src="../assets/js/profile.js"></script>
 </body>
 
 </html>
