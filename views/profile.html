@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>투두리스트</title>
+
+  <!-- Bootstrap: CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <!-- Bootstrap: JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <!-- flatpickr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+  <!-- google Icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/header.css" />
+
+  <link rel="stylesheet" href="../assets/css/profile.css" />
+  <link rel="stylesheet" href="../assets/css/calender.css" />
+
+</head>
+
+<body>
+  <header>
+      <div class="contents-area">
+          <a href="/" class="logo">
+              <span class="material-icons">
+                  home
+              </span>
+              <span class="show-at-lg">
+                  로고
+              </span>
+          </a>
+          <div class="right">
+              <a href="/logout">
+                  <span class="material-icons">
+                      logout
+                  </span>
+                  <span class="show-at-lg">
+                      로그아웃
+                  </span>
+              </a>
+              <a href="/profile">
+                  <span class="material-icons">
+                      account_circle
+                  </span>
+                  <div class="show-xs">
+                      <span>이름</span>님의 프로필
+                  </div>
+              </a>
+          </div>
+      </div>
+  </header>
+  <section class="profile contents-area">
+    <h1 class="title">
+      profile
+    </h1>
+    <form class="list-form" name="pwedit">
+      <div class="list-row">
+        <label for="pw1" class="left">
+          비밀번호 :
+        </label>
+        <input type="password" id="pw1" class="form-control" placeholder="비밀번호를 입력하세요." />
+      </div>
+      <div class="list-row">
+        <label for="pw2" class="left">
+          비밀번호 확인 :
+        </label>
+        <input type="password" id="pw2" class="form-control" placeholder="비밀번호를 입력하세요." />
+        <button onclick="pwCheck()" class="role-btn btn-right">
+          확인
+        </button>
+      </div>
+      <div style="text-align: center;">
+        <span class="pw-wrong hidden" style="font-size: 8px;"></span>
+      </div>
+    </form>
+    <form action="/profile" method="post" class="list-form" name="profile">
+      <div class="list-row">
+        <label for="name" class="left">이름 : </label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하세요." autocomplete="off" />
+      </div>
+      <div class="list-row">
+        <label for="email" class="left">
+          이메일 :
+        </label>
+        <input type="email" id="email" name="email" onchange="emailCheck()" placeholder="이메일을 입력하세요." class="form-control" autocomplete="off" />
+      </div>
+      <div style="text-align: center;">
+        <span class="email-wrong hidden" style="font-size: 8px;"></span>
+      </div>
+      <div class="list-row">
+        <label for="date" class="left">
+          생년월일 :
+        </label>
+        <input id="date_birth" type="text" name="date" placeholder="날짜를 입력하세요" class="form-control empty-text">
+      </div>
+      <div class="list-row">
+        <div class="img-preview-box">
+          <label for="fileInput">
+            <img src="http://via.placeholder.com/150" alt="프로필 이미지" class="img-preview">
+            <span class="img-over-text file-name">클릭해서 <br>수정하세요.</span>
+          </label>
+        </div>
+
+        <!-- <label for="fileInput" class="left img-over btn">프로필 이미지:
+          <div class="img-preview">
+            <span class="img-over-text file-name">클릭해서 <br>수정하세요.</span>
+          </div>
+        </label> -->
+        <input class="form-control hidden fileInput" type="file" id="fileInput" onchange="fileChange()" />
+      </div>
+      <div class="list-row">
+        <button class="role-btn btn-submit" onclick="save_info()"; style="margin: 30px auto 0">
+          회원 정보 수정
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script src="../assets/js/calender.js"></script>
+  <script src="../assets/js/formCheck.js"></script>
+  <script src="../assets/js/profile.js"></script>
+</body>
+
+</html>

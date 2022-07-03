@@ -1,0 +1,326 @@
+/* common */
+:root {
+    --main-bgColor: #fffefe;
+    --main-color: #f9ecc9;
+    --second-color: #80abf6;
+    --accent-color: #5274c4;
+    --box-shadow: 2px 2px 5px rgba(33, 41, 79, 0.245), -2px -2px 5px rgba(135, 111, 111, 0.124);
+    --border-bottomDotted: 1px dotted #aaa;
+}
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+body {
+    color: #333;
+    margin: 0;
+    background-color: var(--main-bgColor);
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    color: var(--accent-color);
+    box-sizing: border-box;
+    position: relative;
+}
+li, ul {
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.contents-area {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+}
+*::placeholder {
+    text-align: center;
+}
+.show-at-sm {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+.info-text {
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: #555;
+}
+.empty-text {
+    color: transparent;
+}
+.material-icons {
+    padding: 0 3px;
+}
+.border-bottom {
+    border-bottom: var(--border-bottomDotted);
+}
+.title {
+    margin-bottom: 30px;
+}
+section {
+    padding-top: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+/* 리스트 스타일 */
+.list-form {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.list-form:last-of-type {
+    margin-bottom: 20px;
+}
+.list-row {
+    width: 100%;
+    line-height: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.list-row > * {
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.list-row input {
+    outline: none;
+    border: 2px solid #aaa;
+}
+.list-row h1 {
+    font-size: 2em;
+    padding: 20px 0 25px 0;
+    margin: 0 0 5px 0;
+}
+.list-row .left {
+    flex: 0 0 100px;
+}
+/* input img */
+.img-preview-box {
+    margin-top: 20px;
+    flex: 1 1 auto;
+}
+.img-preview-box label {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+.img-preview {
+    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.img-over-text {
+    width: 90%;
+    padding: 0 3px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 900;
+    word-wrap: break-word;
+}
+/* margin: 0 auto;
+overflow: hidden;
+
+background-image: url("http://via.placeholder.com/150");
+background-position: center;
+background-size: contain;
+border-radius: 10px;
+
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+
+transition: opacity .2s;
+cursor: pointer; */
+
+/* .profile .left.img-over {
+    position: relative;
+    margin-bottom: 2em;
+    border: none;
+}
+.img-over img {
+    border-radius: 10px;
+}
+.img-over-text {
+    width: 100%;
+    padding: 10px 0;
+    background: #ccc;
+    color: #222;
+    font-size: 12px;
+    font-weight: 900;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-30%);
+} */
+/* .img-preview .img-over {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.img-preview .img-over-text {
+    position: absolute;
+    padding: 0;
+    margin-top: -5px;
+} */
+.img-preview:hover {
+    opacity: 0.8;
+}
+/* clickable, input */
+.wrap label,
+.role-btn,
+input {
+    display: block;
+    margin: 5px;
+    padding: 5px 0;
+    border-radius: 16px;
+
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1.6;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+.role-btn:hover {
+    box-shadow: var(--box-shadow);
+}
+.btn-submit,
+.wrap form input[type=submit]{
+    background: var(--accent-color);
+    color: #fff !important;
+}
+.btn-right {
+    position: absolute;
+    right: 0;
+    transform: translateX(110%);
+}
+/* 부트스트랩 수정 */
+.form-control {
+    width: auto;
+    font-size: 0.8em;
+    margin: 5px;
+    border-radius: 20px;
+    background: #eee !important;
+    border: none !important;
+}
+.dropdown-menu {
+    box-shadow: var(--box-shadow);
+}
+.dropdown-menu.show {
+    width: 100%;
+    min-height: 120px;
+    padding: 8px 10px;
+    left: -10px !important;
+
+    line-height: 2;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 10px;
+
+    border-bottom: var(--border-bottomDotted);
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: inherit;
+}
+.dropdown-menu.show img {
+    display: block;
+    flex: 1 1 auto;
+    border-radius: 10px;
+    background-color: #ddd;
+}
+.dropdown-toggle::after {
+    width: 0;
+    position: absolute;
+    right: 0px;
+}
+/* 반응형 */
+@media (max-width: 500px) {
+    .show-at-sm {
+        display: block;
+    }
+    li,
+    .list-row,
+    .list-style {
+        flex-wrap: wrap;
+        justify-content: flex-end !important;
+    }
+    li .text,
+    .list-row .text,
+    .list-style .text {
+        width: 100%;
+    }
+    input {
+        min-height: 34px;
+    }
+    .input_text {
+        width: 100%;
+    }
+    .show-at-lg {
+        display: none;
+    }
+    li.pic {
+        align-items: flex-end;
+    }
+}
+@media (max-width: 360px) {
+    .show-xs {
+        display: none;
+    }
+    li,
+    .list-row,
+    li .text,
+    li .right,
+    li .right *:not(a) {
+        flex: 1 1 100% !important;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .right {
+        gap: 4px;
+        justify-content: flex-end !important;
+    }
+    .delete {
+        position: absolute;
+    }
+    input {
+        min-height: 34px;
+    }
+    .input_text {
+        width: 100%;
+    }
+    .show-at-lg {
+        display: none;
+    }
+}
+/* 애니메이션 */
+@keyframes blink {
+    0% {opacity: 1;}
+    20% {opacity: 0.4;}
+    40% {opacity: 1;}
+}

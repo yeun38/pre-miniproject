@@ -1,0 +1,49 @@
+section.contents-area,
+section .contents-area {
+    text-align: center;
+    max-width: 400px;
+}
+.profile .role-btn {
+    min-height: 30px;
+    padding: 0 15px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+.list-row {
+    justify-content: center;
+}
+.email-wrong,
+.pw-wrong {
+    margin-left: 5px;
+    margin-top: 10px;
+    color: orange;
+}
+.find-password {
+    font-size: 10px;
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+.profile .left {
+    font-size: 0.8em;
+    font-weight: 600;
+    margin: 5px;
+    padding: 5px 0;
+    text-align: left;
+}
+.profile .btn-submit {
+    margin: 30px 10px;
+}
+.profile .form-control,
+.profile #date {
+    width: 100%;
+}
+.profile .role-btn {
+    min-height: 30px;
+    padding: 0 15px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+.list-form {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
