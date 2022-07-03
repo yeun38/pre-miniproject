@@ -2,18 +2,22 @@
 const API_KEY='a2e8922539a2e4f37866cc7d173c8be2'
 // 
 const weatherResetTime=30*1000
+
 setInterval(()=>{
     askForCoords();
 }, weatherResetTime)
+
 askForCoords();
 function askForCoords() {
     navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
 }
+
 function handleGeoSucces(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     getWeather(latitude, longitude);
 }
+
 function handleGeoError() {
     console.log('위치를 찾을 수 없습니다.');
 }

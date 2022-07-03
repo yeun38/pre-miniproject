@@ -1,14 +1,14 @@
-let slider = document.querySelectorAll(".pic");
-let slideContent = document.querySelectorAll(".pic + li");
+// let slider = document.querySelectorAll(".pic");
+// let slideContent = document.querySelectorAll(".pic + li");
 
-slider = Array.from(slider)
-slideContent = Array.from(slideContent)
+// slider = Array.from(slider)
+// slideContent = Array.from(slideContent)
 
-slider.forEach((list, idx) => {
-    list.addEventListener('click', () => {
-        slideContent[idx].classList.toggle('active')
-    })
-})
+// slider.forEach((list, idx) => {
+//     list.addEventListener('click', () => {
+//         slideContent[idx].classList.toggle('active')
+//     })
+// })
 
 // 
 const header = document.querySelector('header');
