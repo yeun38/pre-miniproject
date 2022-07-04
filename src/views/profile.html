@@ -25,11 +25,11 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/header.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/header.css" />
 
-  <link rel="stylesheet" href="../assets/css/profile.css" />
-  <link rel="stylesheet" href="../assets/css/calender.css" />
+  <link rel="stylesheet" href="/css/profile.css" />
+  <link rel="stylesheet" href="/css/calender.css" />
 
 </head>
 
@@ -45,7 +45,7 @@
               </span>
           </a>
           <div class="right">
-              <a href="/logout">
+              <a href="/auth/logout">
                   <span class="material-icons">
                       logout
                   </span>
@@ -68,6 +68,7 @@
     <h1 class="title">
       profile
     </h1>
+    <input type="hidden" value="{{ id }}" class="userid">
     <form class="list-form" name="pwedit">
       <div class="list-row">
         <label for="pw1" class="left">
@@ -80,8 +81,8 @@
           비밀번호 확인 :
         </label>
         <input type="password" id="pw2" class="form-control" placeholder="비밀번호를 입력하세요." />
-        <button onclick="pwCheck()" class="role-btn btn-right">
-          확인
+        <button class="role-btn btn-right" id="confirm">
+          재설정
         </button>
       </div>
       <div style="text-align: center;">
@@ -91,13 +92,13 @@
     <form action="/profile" method="post" class="list-form" name="profile">
       <div class="list-row">
         <label for="name" class="left">이름 : </label>
-        <input type="text" id="name" name="name" class="form-control" placeholder="이름을 입력하세요." autocomplete="off" />
+        <input type="text" id="name" name="name" class="form-control" autocomplete="off" value="{{ name }}"/>
       </div>
       <div class="list-row">
         <label for="email" class="left">
           이메일 :
         </label>
-        <input type="email" id="email" name="email" onchange="emailCheck()" placeholder="이메일을 입력하세요." class="form-control" autocomplete="off" />
+        <input type="email" id="email" name="email" class="form-control" autocomplete="off" value="{{ email }}"/>
       </div>
       <div style="text-align: center;">
         <span class="email-wrong hidden" style="font-size: 8px;"></span>
@@ -106,34 +107,56 @@
         <label for="date" class="left">
           생년월일 :
         </label>
-        <input id="date_birth" type="text" name="date" placeholder="날짜를 입력하세요" class="form-control empty-text">
+        <input id="date_birth" type="text" name="date" value="{{ birth }}">
       </div>
       <div class="list-row">
         <div class="img-preview-box">
           <label for="fileInput">
-            <img src="http://via.placeholder.com/150" alt="프로필 이미지" class="img-preview">
+            <img src="../images/{{ profile }}" alt="프로필 이미지" class="img-preview">
             <span class="img-over-text file-name">클릭해서 <br>수정하세요.</span>
           </label>
         </div>
-
-        <!-- <label for="fileInput" class="left img-over btn">프로필 이미지:
-          <div class="img-preview">
-            <span class="img-over-text file-name">클릭해서 <br>수정하세요.</span>
-          </div>
-        </label> -->
-        <input class="form-control hidden fileInput" type="file" id="fileInput" onchange="fileChange()" />
+        <input class="form-control hidden fileInput" type="file" id="fileInput" name="profileimage"/>
       </div>
       <div class="list-row">
-        <button class="role-btn btn-submit" onclick="save_info()"; style="margin: 30px auto 0">
-          회원 정보 수정
+        <button class="role-btn btn-submit" style="margin: 30px auto 0">
+          프로필 이미지 수정
         </button>
       </div>
     </form>
   </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const $userId = document.querySelector(".userid");
+    const $confirm = document.querySelector("#confirm");
+    const $pw = document.querySelector("#pw1");
+    const $pw2 = document.querySelector("#pw2");
+    const $image = document.querySelector("#fileInput");
 
-  <script src="../assets/js/calender.js"></script>
-  <script src="../assets/js/formCheck.js"></script>
-  <script src="../assets/js/profile.js"></script>
+    $image.addEventListener("change", function(e) {
+      const form = new FormData();
+      console.log(this.files);
+      form.append("image", this.files[0]);
+      axios.post(`/user/image/${$userId.value}`, form)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => console.error(err));
+    });
+    $confirm.addEventListener("click", e => {
+      e.preventDefault();
+      if ($pw.value !== $pw2.value) return alert("동일한 비밀번호를 입력하세요.");
+      const req = axios.post(`/user/update/${$userId.value}`, {
+        password: $pw.value,
+      });
+      req
+        .then(res => {
+          alert("성공적으로 변경되었습니다. 다시 로그인해주세요.");
+          location.href = "/auth/logout";
+        })
+        .catch(err => console.error(err));
+    });
+  </script>
 </body>
 
 </html>

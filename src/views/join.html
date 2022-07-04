@@ -41,11 +41,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/header.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/header.css" />
 
-    <link rel="stylesheet" href="../assets/css/join.css" />
-    <link rel="stylesheet" href="../assets/css/calender.css" />
+    <link rel="stylesheet" href="/css/join.css" />
+    <link rel="stylesheet" href="/css/calender.css" />
   </head>
 
   <body>
@@ -69,7 +69,7 @@
         </div>
       </header>
       <section class="join contents-area">
-        <form class="list-form" action="/join" method="post" name="join">
+        <form class="list-form" action="/auth/join" method="post" enctype="multipart/form-data">
           <h1 class="title">join</h1>
           <div class="list-row">
             <label for="name" class="left">이름 : </label>
@@ -87,7 +87,6 @@
               type="email"
               id="email"
               name="email"
-              onchange="emailCheck()"
               class="form-control"
               autocomplete="off"
             />
@@ -95,11 +94,11 @@
           <span class="email-wrong hidden" style="font-size: 8px"></span>
           <div class="list-row">
             <label for="pw" class="left"> 비밀번호 : </label>
-            <input type="password" id="pw" class="form-control" />
+            <input type="password" id="pw" class="form-control" name="password"/>
           </div>
           <div class="list-row">
             <label for="pw2" class="left"> 비밀번호 확인 : </label>
-            <input type="password" id="pw2" class="form-control" />
+            <input type="password" id="pw2" class="form-control" name="password2"/>
             <input
               type="submit"
               onclick="pwCheck()"
@@ -112,7 +111,7 @@
             <input
               id="date_birth"
               type="text"
-              name="date"
+              name="birth"
               placeholder="날짜를 입력하세요"
               class="form-control empty-text"
             />
@@ -126,22 +125,21 @@
           </div>
           <div class="list-row">
             <label for="formFile" class="form-label left">프로필 이미지:</label>
-            <input class="form-control" type="file" id="formFile" />
+            <input class="form-control" type="file" id="formFile" name="img"/>
           </div>
           <div class="list-row">
-            <input
+            <button
               type="submit"
-              onclick="save_info()"
               value="회원가입"
               class="role-btn"
               style="margin: 30px auto 0"
-            />
+            >회원가입</button>
           </div>
         </form>
       </section>
     </div>
-    <script src="../assets/js/calender.js"></script>
-    <script src="../assets/js/formCheck.js"></script>
-    <script src="../assets/js/join.js"></script>
+    <script src="/js/calender.js"></script>
+    <script src="/js/formCheck.js"></script>
+    <script src="/js/join.js"></script>
   </body>
 </html>
