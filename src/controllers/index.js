@@ -8,8 +8,10 @@ const joinRender = (req, res, next) => {
   return res.render("join");
 }
 
-const loginRender = (req, res, next) => {
-  return res.render("login");
+const mainRender = (req, res, next) => {
+  return res.render("main", {
+    user: req.user,
+  });
 }
 
 const profileRender = (req, res, next) => {
@@ -33,7 +35,7 @@ const test = async (req, res, net) => {
 export {
   indexRender,
   joinRender,
-  loginRender,
+  mainRender,
   profileRender,
   test,
 }

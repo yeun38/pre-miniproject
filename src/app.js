@@ -10,6 +10,8 @@ import passport from "passport";
 import indexRoutes from "./routes/index.js";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/user.js";
+import postRoutes from "./routes/post.js"; 
+
 import * as errorController from "./controllers/error.js";
 
 import passportConfig from "./passport/index.js";
@@ -54,6 +56,7 @@ app.use(passport.session());
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
+app.use("/post", postRoutes);
 
 app.use(errorController.error404);
 app.use(errorController.error);

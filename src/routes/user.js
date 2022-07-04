@@ -1,15 +1,11 @@
 import express from "express";
-import multer from "multer";
-
-const upload = multer();
 
 import * as userController from "../controllers/user.js";
-
-// import * as multer from "../middlewares/multer.js";
+import * as multer from "../middlewares/multer.js";
 
 const router = express.Router();
 
 router.post("/update/:id", userController.userUpdatePass);
-router.post("/image/:id", upload.none(), userController.userUpdateImage);
+router.post("/image/:id", multer.uploadImage.single("profile"), userController.userUpdateImage);
 
 export default router;
