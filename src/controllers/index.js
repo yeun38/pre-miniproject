@@ -13,7 +13,14 @@ const loginRender = (req, res, next) => {
 }
 
 const profileRender = (req, res, next) => {
-  return res.render("profile");
+  console.log(req.user.birth);
+  return res.render("profile", {
+    id: req.user.id,
+    name: req.user.name,
+    email: req.user.email,
+    birth: req.user.birth,
+    profile: req.user.profile,
+  });
 }
 
 const test = async (req, res, net) => {
