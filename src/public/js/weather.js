@@ -24,6 +24,7 @@ function handleGeoError() {
 
 function getWeather(lat, lon) {
     // console.log("현재 좌표: " + lat, lon);
+    fetch
     fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
         )

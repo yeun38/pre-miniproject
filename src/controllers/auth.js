@@ -17,9 +17,9 @@ const authJoin = async (req, res, next) => {
       name,
       gender: gender === "male" ? true : false,
       birth,
-      profile: req.file.filename,
+      profile: req.file?.filename ?? null,
     });
-    return res.status(201).redirect("/login");
+    return res.status(201).redirect("/");
   } catch (err) { 
     console.error(err);
     next(err);
@@ -51,9 +51,9 @@ const authLogin = async (req, res, next) => {
 const authLogout = async (req, res, next) => {
   try { 
     req.logout(err => {
-      if (err) return res.status(404).redirect("/login");
+      if (err) return res.status(404).redirect("/");
       req.session.destroy();
-      res.clearCookie("connect.sid").status(200).redirect("/login");
+      res.clearCookie("connect.sid").status(200).redirect("/");
     })
   } catch (err) {
     console.error(err);

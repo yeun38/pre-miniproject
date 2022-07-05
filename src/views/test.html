@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>request</button>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const $request = document.querySelector("button");
+
+  $request.addEventListener("click", e => {
+    axios.post("/test")
+      .then(res => {
+        console.log(res.data.main);
+        innerHTML = `
+          
+        `
+      })
+      .catch(err => console.error(err));
+  });
+</script>
+</body>
+</html>
