@@ -9,5 +9,6 @@ const router = express.Router();
 router.post("/create", multer.uploadImage.array("many"), postController.postCreate);
 router.get("/delete/:id", postController.postDelete);
 router.get("/get", postController.postGet);
+router.get("/get/:date", postController.postGetDate);
 
 export default router;

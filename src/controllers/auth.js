@@ -8,7 +8,7 @@ const authJoin = async (req, res, next) => {
   const { name, email, password, password2, birth, gender} = req.body;
   try {
     const exist = await User.findOne({ where: { email }});
-    if (exist) return res.status(304).redirect("/login?error=이미 가입된 회원이에요.");
+    if (exist) return res.status(304).redirect("/?error=이미 가입된 회원이에요.");
     if (password !== password2) return res.status(304).redirect("/join?error=동일한 비밀번호를 입력해주세요.");
     const hash = await bcrypt.hash(password, 10);
     const user = await User.create({
@@ -33,7 +33,7 @@ const authLogin = async (req, res, next) => {
         console.error(authError);
         return next(authError);
       }
-      if (!user) return res.redirect("/login?error=가입된 회원이 아니에요.");
+      if (!user) return res.redirect("/?error=가입된 회원이 아니에요.");
       return req.login(user, (loginError) => {
         if (loginError) {
           console.error(loginError);

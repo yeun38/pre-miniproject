@@ -1,10 +1,16 @@
+import moment from "moment";
+
 import { Op } from "sequelize";
 import { sequelize } from "../models/index.js";
 import User from "../models/user.js";
 import Post from "../models/post.js";
 
+const time = moment();
+
 const postCreate = async (req, res, next) => {
   const { id, date, title } = req.body;
+  const dateResult = date.split("-");
+  console.log(dateResult[2]);
   try {
     if (!id) return res.status(404).redirect("/?error=유저가 존재하지 않아요.");
     const post = await Post.create({
@@ -12,7 +18,7 @@ const postCreate = async (req, res, next) => {
       image1: req.files[0]?.filename ?? null,
       image2: req.files[1]?.filename ?? null,
       image3: req.files[2]?.filename ?? null,
-      createAt: date,
+      created: time.format(`${dateResult[0]}-${dateResult[1]}-${dateResult[2]}`),
       UserId: id,
     });
     return res.status(201).redirect("/main");
@@ -41,7 +47,7 @@ const postGet = async (req, res, next) => {
       where: {
         title: { [Op.like]: "%" + title + "%" },
       },
-      order: [[ "createdAt", "DESC" ]],
+      order: [[ "created", "DESC" ]],
     });
     return res.status(200).render("main", {
       user: req.user,
@@ -53,8 +59,34 @@ const postGet = async (req, res, next) => {
   }
 }
 
+const postGetDate = async (req, res, next) => {
+  const date = req.params.date;
+  try {
+    switch (date) {
+      case "seven":
+        const [ result ] = await sequelize.query(`SELECT * FROM posts WHERE DATE(created) BETWEEN DATE_ADD(NOW(), INTERVAL - 1 WEEK) AND NOW()`);
+        return res.render("main", {
+          posts: result,
+        });
+        break;
+      case "three":
+        const [ result2 ] = await sequelize.query(`SELECT * FROM posts WHERE DATE(created) BETWEEN DATE_ADD(NOW(), INTERVAL - 3 DAY) AND NOW()`);
+        return res.render("main", {
+          posts: result2,
+        });
+        break;
+      default:
+        return res.status(404).redirect("/main?error=클라이언트 에러");
+    }
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+}
+
 export {
   postCreate,
   postDelete,
   postGet,
+  postGetDate,
 }

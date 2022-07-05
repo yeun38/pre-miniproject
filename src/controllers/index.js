@@ -1,8 +1,11 @@
 import axios from "axios";
+import moment from "moment";
 
 import { sequelize } from "../models/index.js";
 import User from "../models/user.js";
 import Post from "../models/post.js";
+
+const time = moment();
 
 const indexRender = (req, res, next) => {
   return res.render("index");
@@ -38,6 +41,8 @@ const profileRender = (req, res, next) => {
 }
 
 const testRender = async (req, res, next) => {
+  const [ result, metadata ] = await sequelize.query("SELECT * FROM users");
+  console.log(result); 
   return res.render("test");
 }
 
