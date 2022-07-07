@@ -28,10 +28,17 @@ const userUpdatePass = async (req, res, next) => {
 const userUpdateImage = async (req, res, next) => {
   const userId = req.params.id;
   try {
-    console.log(userId);
-    console.log(req.body);
-    console.log(req.query);
-    res.end();
+    console.log(req.file.filename);
+    const exist = await User.findOne({ where: { id: userId }});
+    if (!exist) return res.status(404).redirect("/?error=유저아이디 없음");
+    const update = await User.update({
+      profile: req.file.filename,
+    }, {
+      where: { id: userId },
+    });
+    return res.status(200).json({
+      url: `/img/${req.file.filename}`,
+    });
   } catch (err) {
     console.error(err);
     next(err);

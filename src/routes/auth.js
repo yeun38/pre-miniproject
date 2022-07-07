@@ -1,7 +1,6 @@
 import express from "express";
 
 import * as authController from "../controllers/auth.js";
-
 import * as multer from "../middlewares/multer.js";
 
 const router = express.Router();

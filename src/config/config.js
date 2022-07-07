@@ -9,6 +9,7 @@ const config = {
     "host": "3.95.50.72",
     "dialect": "mysql",
     "logging": false,
+
   },
   "test": {
     "username": "root",

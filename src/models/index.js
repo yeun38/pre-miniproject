@@ -11,7 +11,7 @@ const sequelize = new Sequelize(
   configEnv.database,
   configEnv.username,
   configEnv.password,
-  configEnv,
+  configEnv
 );
 
 db.sequelize = sequelize;

@@ -8,7 +8,7 @@ const authJoin = async (req, res, next) => {
   const { name, email, password, password2, birth, gender} = req.body;
   try {
     const exist = await User.findOne({ where: { email }});
-    if (exist) return res.status(304).redirect("/login?error=이미 가입된 회원이에요.");
+    if (exist) return res.status(304).redirect("/?error=이미 가입된 회원이에요.");
     if (password !== password2) return res.status(304).redirect("/join?error=동일한 비밀번호를 입력해주세요.");
     const hash = await bcrypt.hash(password, 10);
     const user = await User.create({
@@ -17,9 +17,9 @@ const authJoin = async (req, res, next) => {
       name,
       gender: gender === "male" ? true : false,
       birth,
-      profile: req.file.filename,
+      profile: req.file?.filename ?? null,
     });
-    return res.status(201).redirect("/login");
+    return res.status(201).redirect("/");
   } catch (err) { 
     console.error(err);
     next(err);
@@ -33,7 +33,7 @@ const authLogin = async (req, res, next) => {
         console.error(authError);
         return next(authError);
       }
-      if (!user) return res.redirect("/login?error=가입된 회원이 아니에요.");
+      if (!user) return res.redirect("/?error=가입된 회원이 아니에요.");
       return req.login(user, (loginError) => {
         if (loginError) {
           console.error(loginError);
@@ -51,9 +51,9 @@ const authLogin = async (req, res, next) => {
 const authLogout = async (req, res, next) => {
   try { 
     req.logout(err => {
-      if (err) return res.status(404).redirect("/login");
+      if (err) return res.status(404).redirect("/");
       req.session.destroy();
-      res.clearCookie("connect.sid").status(200).redirect("/login");
+      res.clearCookie("connect.sid").status(200).redirect("/");
     })
   } catch (err) {
     console.error(err);

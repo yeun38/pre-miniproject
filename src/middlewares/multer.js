@@ -1,6 +1,8 @@
 import multer  from "multer";
+import moment from "moment";
 import path from "path";
 
+const time = moment();
 const uploadNone = multer();
 
 const uploadImage = multer({
@@ -10,7 +12,7 @@ const uploadImage = multer({
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname);
-      done(null, Date.now() + ext);
+      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
     },
   }),
   limits: { fileSize: 5 * 1024 * 1024 },

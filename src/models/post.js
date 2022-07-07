@@ -20,9 +20,13 @@ export default class Post extends Sequelize.Model {
         type: Sequelize.STRING(200),
         allowNull: true,
       },
+      created: {
+        type: Sequelize.DATEONLY,
+        allowNull: false,
+      },
     }, {
       sequelize,
-      timestamps: true,
+      timestamps: false,
       paranoid: false,
       underscored: false,
       modelName: "Post",
