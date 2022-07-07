@@ -15,11 +15,11 @@ const joinRender = (req, res, next) => {
   return res.render("join");
 }
 
-const mainRender = async (req, res, next) => {
+const mainRender = async (req, res, next) => {  
   try {
+    const page = req.query.page;
     const user = await User.findOne({ where: { id: req.user.id }});
     const posts = await user.getPosts();
-    console.log(posts);
     return res.render("main", {
       user: req.user,
       posts,
