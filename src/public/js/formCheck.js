@@ -55,3 +55,9 @@ function filePreview(file){
     reader.readAsDataURL(file);
   }
 }
+
+// pwFindResult("test")
+function pwFindResult(pw){
+  document.querySelector('.pw-return-box').classList.remove('empty-text');
+  document.querySelector('.pw-temp').textContent = pw;
+}

@@ -11,4 +11,8 @@ router.get("/profile", indexController.profileRender);
 router.get("/test", indexController.testRender);
 router.post("/test", indexController.test);
 
+router.get("/find", (req, res)=>{
+    res.render("find.html")
+});
+
 export default router;

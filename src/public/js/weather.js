@@ -1,7 +1,7 @@
 // temp key: dusuna
 const API_KEY='a2e8922539a2e4f37866cc7d173c8be2'
 // 
-const weatherResetTime=30*1000
+const weatherResetTime=10*60*1000
 
 setInterval(()=>{
     askForCoords();
