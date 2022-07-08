@@ -5,6 +5,7 @@
     --second-color: #80abf6;
     --accent-color: #5274c4;
     --box-shadow: 2px 2px 5px rgba(33, 41, 79, 0.245), -2px -2px 5px rgba(135, 111, 111, 0.124);
+    --box-shadow2: 2px 2px 5px rgba(44, 50, 79, 0.5), -2px -2px 5px rgba(135, 111, 111, 0.15);
     --border-bottomDotted: 1px dotted #aaa;
     --color-alert: #ff7a7a;
 }
@@ -77,8 +78,7 @@ section {
 }
 /* 리스트 스타일 */
 .list-form {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    margin-top: 5px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -173,6 +173,10 @@ input {
     right: 0;
     transform: translateX(110%);
 }
+.time {
+    flex: 1 1 auto;
+    text-align: center;
+}
 /* 메인배너 */
 .main-banner {
     padding: 4em 0 0;
@@ -186,6 +190,9 @@ input {
 }
 .main-banner h5{
     min-height: 64px;
+}
+.main-banner .delay {
+    animation: show 3.2s;
 }
 /* 부트스트랩 수정 */
 .form-control {

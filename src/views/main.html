@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O-Null :: 오늘의 기록</title>
+    <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap: CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -64,29 +65,22 @@
                 </div>
             </div>
             <div class="form-box">
-                <div class="list-form border-bottom">
-                    <div>
-                        <h1 class="main-title">To Do List</h1>
-                        오늘:
-                        <h3>오늘: </h3>
+                <div class="main-profile list-form border-bottom">
+                    <div class="username">
+                        <div class="picture">
+                            <img src="img/test.png" alt="프로필 이미지" class="username-picture">
+                        </div>
+                        <p class="name">유재석</p>
                     </div>
-                    <div class="list-row contents-area">
-                        <a class="role-btn" href="/main">
-                            전체보기
-                        </a>
-                        <!-- <a class="role-btn" href="/post/get/three">
-                            3일 이내 보기
-                        </a> -->
-                        <a class="role-btn" href="/post/get/seven">
-                            일주일 보기
-                        </a>
+                    <div class="user-lastest">
+                        <p class="text">마지막으로 남긴 단어가 표시됩니다.</p>
                     </div>
                 </div>
-                <form class="list-form contents-area" action="/post/create" method="post" enctype="multipart/form-data">
+                <form class="list-form contents-area border-bottom" action="/post/create" method="post" enctype="multipart/form-data">
                     <input type="hidden" value="{{ user.id }}" class="userid" name="id">
                     <div class="list-row">
                         <input id="date" type="text" name="date" placeholder="날짜 입력" class="form-control">
-                        <input type="text" name="title" placeholder="새로운 리스트를 입력하세요." class="input_text form-control"
+                        <input type="text" name="title" placeholder="단어를 입력하세요." class="input_text form-control"
                             autocomplete="off">
                         <input type="file" name="many" id="file" class="fileInput hidden" onchange="fileChange()"
                             multiple>
@@ -94,7 +88,7 @@
                     </div>
                     <div class="list-row">
                         <button type="submit" class="role-btn btn-submit">
-                            입력
+                            남기기
                         </button>
                     </div>
                     <span class="file-name info-text">
@@ -103,7 +97,7 @@
                 </form>
                 <form class="list-form contents-area" action="/post/get" method="get">
                     <div class="list-row search-box">
-                        <input type="text" class="search form-control" name="title" placeholder="타이틀 검색"
+                        <input type="text" class="search form-control" name="title" placeholder="검색할 내용을 입력하세요."
                             autocomplete="off">
                         <button type="submit" class="search-btn role-btn">
                             <span class="material-icons">
@@ -112,6 +106,17 @@
                         </button>
                     </div>
                 </form>
+                <div class="list-row contents-area">
+                    <a class="role-btn" href="/main">
+                        전체 보기
+                    </a>
+                    <!-- <a class="role-btn" href="/post/get/three">
+                        3일 이내 보기
+                    </a> -->
+                    <a class="role-btn" href="/post/get/seven">
+                        일주일 보기
+                    </a>
+                </div>
             </div>
             {% for post in posts %}
             <div class="list-container contents-area">
@@ -120,23 +125,40 @@
                         <span class="text">
                             {{ post.title }}
                         </span>
-                        <img src="/images/{{ post.image1 }}" alt="" width="100" height="100">
-                        <img src="/images/{{ post.image2 }}" alt="" width="100" height="100">
-                        <img src="/images/{{ post.image3 }}" alt="" width="100" height="100">
+                        <div class="img-box">
+                            <!-- <div class="img-circle">
+                                <img src="/images/{{ post.image1 }}" alt="" onclick="imgClick()">
+                                <div></div>
+                            </div>
+                            
+                            <div class="img-circle">
+                                <img src="/images/{{ post.image2 }}" alt="" onclick="imgClick()">
+                                <div></div>
+                            </div> -->
+                            
+                            <div class="img-circle">
+                                <img src="/src/images/KakaoTalk_20220630_1514570071657115972937.jpg" alt="" onclick="imgClick(this)">
+                                <div></div>
+                            </div>
+                        </div>
                         <div class="right">
-                            <span class="time">{{ post.created }}</span>
+                            <span class="time info-text">
+                                {{ post.created }}
+                                오늘
+                            </span>
                             <a href="/post/delete/{{ post.id }}" class="delete role-btn">X</a>
                         </div>
                     </li>
                 </ul>
             </div>
             {% endfor %}
+            <div class="info-text" style="text-align: center;">
+                <a href="/main?page=1">1</a>
+                <!-- <a href="/main?page=2">2</a> -->
+            </div>
         </section>
-        <div>
-            <a href="/main?page=1">1</a>
-            <a href="/main?page=2">2</a>
-            <a href="/main?page=3">3</a>
-        </div>
+        <footer>
+        </footer>
     </div>
 
     <script src="../public/js/time.js"></script>
@@ -145,8 +167,17 @@
     <script src="../public/js/weather.js"></script>
     <script src="../public/js/formCheck.js"></script>
     <script src="../public/js/main.js"></script>
-    <script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: '/test',
+            type: 'post',
+            data: {},
+            success: (res)=>{
+                console.log(res);
+            }
+        });
     </script>
 </body>
 
