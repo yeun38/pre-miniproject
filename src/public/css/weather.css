@@ -1,6 +1,7 @@
 #weather {
     width: 150px;
     height: 150px;
+    box-sizing: border-box;
     position: absolute;
     right: -160px;
     background: var(--second-color);
@@ -15,12 +16,23 @@
 }
 #weather.fixed {
     position: fixed;
+    width: calc(100vw - 16px);
+    height: auto;
+    border-radius: 0;
+    flex-direction: row;
+    justify-content: right;
+    padding: 0 1.3em;
+    right: -50%;
+
     left: 0;
-    right: auto;
-    transform: none;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 #weather img {
     width: 80px;
+}
+#weather.fixed img {
+    width: 35px;
 }
 
 @media (max-width: 960px) {
@@ -31,9 +43,13 @@
         border-radius: 0;
         flex-direction: row;
         justify-content: right;
-        padding: 0 1.3em;
+        padding: 0 1.8em;
         right: -50%;
         transform: translateX(-50%);
+    }
+    #weather.fixed {
+        right: auto;
+        transform: none;
     }
     #weather strong {
         order: 1;

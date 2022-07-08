@@ -5,7 +5,6 @@ let h_top = header.offsetTop;
 // 웨더
 const weatherBar = document.querySelector('#weather');
 let weather_top = weatherBar.offsetTop;
-
 window.onscroll = function () {
     header_sticky()
 };
@@ -24,12 +23,12 @@ function header_sticky() {
             }
         }
     } else {
-        if (window.scrollY > h_top + weather_top) {
+        if (window.scrollY > h_top) {
             if (!header.classList.contains('fixed')) {
                 header.classList.add('fixed')
                 weatherBar.classList.add('fixed')
                 weatherBar.style.top = header.clientHeight + "px";
-                wrap.style.paddingTop = header.clientHeight + weatherBar.clientHeight + 'px'
+                wrap.style.paddingTop = header.clientHeight + 40 + 'px'
             }
         } else {
             if (header.classList.contains('fixed')) {
