@@ -118,6 +118,13 @@ li.pic .right {
     min-height: 55px;
 }
 /*  */
+@media (max-width: 500px) {
+    li,
+    .list-row,
+    .list-style {
+        justify-content: flex-end !important;
+    }
+}
 @media (max-width: 380px) {
     .list-container li > div:last-child {
         flex: 1 1 100%;

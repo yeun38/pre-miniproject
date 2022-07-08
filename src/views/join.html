@@ -1,147 +1,132 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>투두리스트</title>
 
-    <!-- Bootstrap: CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <!-- Bootstrap: JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
-    <!-- flatpickr CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
-    <!-- google Icon -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <!-- google Font-->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>투두리스트</title>
 
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/header.css" />
+  <!-- Bootstrap: CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <!-- Bootstrap: JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <!-- flatpickr CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+  <!-- google Icon -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <!-- google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/css/join.css" />
-    <link rel="stylesheet" href="/css/calender.css" />
-  </head>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/header.css" />
 
-  <body>
-    <div class="wrap">
-      <header>
-        <div class="contents-area">
-          <a href="/" class="logo">
-            <span class="material-icons"> home </span>
-            <span class="show-at-lg"> 로고 </span>
+  <link rel="stylesheet" href="/css/join.css" />
+  <link rel="stylesheet" href="/css/calender.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="contents-area">
+        <a href="/" class="logo">
+          <span> O-Nul </span>
+        </a>
+        {% if user %}
+        <div class="right">
+          <a href="/logout">
+            <span class="material-icons"> logout </span>
+            <span class="show-at-lg"> 로그아웃 </span>
           </a>
-          {% if user %}
-          <div class="right">
-            <a href="/logout">
-              <span class="material-icons"> logout </span>
-              <span class="show-at-lg"> 로그아웃 </span>
-            </a>
-            <a href="/profile">
-              <span class="material-icons"> account_circle </span>
-              <div class="show-xs"><span>이름</span>님의 프로필</div>
-            </a>
-          </div>
-          {% endif %}
+          <a href="/profile">
+            <span class="material-icons"> account_circle </span>
+            <div class="show-xs"><span>이름</span>님의 프로필</div>
+          </a>
         </div>
-      </header>
-      <section class="join contents-area">
-        <form class="list-form" action="/auth/join" method="post" enctype="multipart/form-data">
-          <h1 class="title">join</h1>
-          <div class="list-row">
-            <label for="name" class="left">이름 : </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="form-control"
-              autocomplete="off"
-            />
-          </div>
-          <div class="list-row">
-            <label for="email" class="left"> 이메일 : </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control"
-              autocomplete="off"
-            />
-          </div>
-          <span class="email-wrong hidden" style="font-size: 8px"></span>
-          <div class="list-row">
-            <label for="pw" class="left"> 비밀번호 : </label>
-            <input type="password" id="pw" class="form-control" name="password"/>
-          </div>
-          <div class="list-row">
-            <label for="pw2" class="left"> 비밀번호 확인 : </label>
-            <input type="password" id="pw2" class="form-control" name="password2"/>
-            <input
+        {% else %}
+        <div class="right">
+          <a href="/">
+            로그인
+          </a>
+        </div>
+        {% endif %}
+      </div>
+    </header>
+    <section class="join contents-area">
+      <form class="list-form" action="/auth/join" method="post" enctype="multipart/form-data">
+        <h1 class="title">Join</h1>
+        <div class="list-row">
+          <label for="name" class="left">*이름 : </label>
+          <input type="text" id="name" name="name" class="form-control" autocomplete="off" />
+        </div>
+        <div class="list-row">
+          <label for="email" class="left"> *이메일 : </label>
+          <input type="email" id="email" name="email" class="form-control" autocomplete="off" />
+        </div>
+        <span class="email-wrong hidden" style="font-size: 8px"></span>
+        <div class="list-row">
+          <label for="pw" class="left"> *비밀번호 : </label>
+          <input type="password" id="pw" class="form-control" name="password" onchange="pwCheck()" />
+        </div>
+        <div class="list-row">
+          <label for="pw2" class="left"> *비밀번호 확인 : </label>
+          <input type="password" id="pw2" class="form-control" name="password2" onchange="pwCheck()" />
+          <!-- <input
               type="submit"
-              onclick="pwCheck()"
+              onclick=""
               value="확인"
               class="role-btn"
-            />
+            /> -->
+        </div>
+        <div class="list-row" 
+          style="
+            margin-bottom: 20px; height: 36px;">
+          <span class="pw-wrong info-text empty-text" 
+          style="
+            width: 80%; 
+            background-color: transparent;
+            border-bottom: 2px dotted #aaa;
+            padding: 0px 0 10px;
+            font-size: 0.5em;
+            color: #ff7a7a;
+            ">
+            동일한 비밀번호를 입력해주세요.
+          </span>
+        </div>
+        <div class="list-row">
+          <label for="date" class="left" style="text-align: center;"> 추가정보 </label>
+        </div>
+        <div class="list-row">
+          <label for="date" class="left"> 생년월일 : </label>
+          <input id="date_birth" type="text" name="birth" placeholder="날짜를 입력하세요" class="form-control empty-text" />
+        </div>
+        <div class="list-row">
+          <span class="left">성별 : </span>
+          <div class="right">
+            <label for="man">남자</label><input id="man" type="radio" name="gender" value="male" />
+            <label for="woman">여자</label><input id="woman" type="radio" name="gender" value="female" />
           </div>
-          <div class="list-row">
-            <label for="date" class="left"> 생년월일 : </label>
-            <input
-              id="date_birth"
-              type="text"
-              name="birth"
-              placeholder="날짜를 입력하세요"
-              class="form-control empty-text"
-            />
-          </div>
-          <div class="list-row">
-            <span class="left">성별 : </span>
-            <label for="man">남자</label
-            ><input id="man" type="radio" name="gender" value="male" />
-            <label for="woman">여자</label
-            ><input id="woman" type="radio" name="gender" value="female" />
-          </div>
-          <div class="list-row">
-            <label for="formFile" class="form-label left">프로필 이미지:</label>
-            <input class="form-control" type="file" id="formFile" name="img"/>
-          </div>
-          <div class="list-row">
-            <button
-              type="submit"
-              value="회원가입"
-              class="role-btn"
-              style="margin: 30px auto 0"
-            >회원가입</button>
-          </div>
-        </form>
-      </section>
-    </div>
-    <script src="/js/calender.js"></script>
-    <script src="/js/formCheck.js"></script>
-    <script src="/js/join.js"></script>
-  </body>
+        </div>
+        <div class="list-row" style="margin-bottom: 1em;">
+          <label for="formFile" class="form-label left">프로필 이미지:</label>
+          <input class="form-control" type="file" id="formFile" name="img" />
+        </div>
+        <div class="list-row">
+          <button type="submit" value="회원가입" class="role-btn" style="margin: 30px auto 0">가입하기</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <script src="/js/calender.js"></script>
+  <script src="/js/formCheck.js"></script>
+  <script src="/js/join.js"></script>
+</body>
+
 </html>

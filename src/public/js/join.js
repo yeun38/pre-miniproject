@@ -1,6 +1,7 @@
 function save_info() {
-  let join_form = $("form[name=join").serialize();
+  let join_form = $("form[name=join]").serialize();
 
+  
   $.ajax({
     type: "POST",
     url: "/users",
