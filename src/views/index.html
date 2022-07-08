@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>O-Null: 오늘의 기록</title>
+    <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap: CSS only -->
     <link
@@ -67,6 +68,14 @@
           {% endif %}
         </div>
       </header>
+      <div class="main-banner">
+        <h5>
+          안녕하세요.<br>
+          Welcome to 
+          <div class="show-at-sm"></div>
+          <strong>오늘 O-Nul.</strong>
+        </h5>
+      </div>
       <section class="login contents-area">
         <form class="list-form" action="/auth/login" method="post">
           <h1 class="title">Login</h1>
@@ -107,6 +116,8 @@
           </div>
         </form>
       </section>
+      <footer>
+      </footer>
     </div>
 
     <script src="/js/login.js"></script>

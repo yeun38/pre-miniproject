@@ -41,8 +41,11 @@
     .join #date {
         max-width: 100%;
     }
-    .list-row .left {
-        flex: 0 0 auto;
+    .list-row > *,
+    .join .right {
+        flex: 0 0 100% !important;
+        margin: 0 !important;
+        max-width: none;
     }
 }
 
