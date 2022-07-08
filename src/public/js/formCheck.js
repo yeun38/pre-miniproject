@@ -13,16 +13,14 @@ function emailCheck() {
   });
 }
 function pwCheck(){
-  const pw1=document.querySelector('#pw1').value;
+  const pw1=document.querySelector('#pw').value;
   const pw2=document.querySelector('#pw2').value;
   const pw_wrong = document.querySelector(".pw-wrong");
   if(pw1 === pw2 && pw1.length > 0){
-    pw_wrong.classList.add('hidden')
-    // 비밀번호 수정하는 post
-    alert('동일')
-  } else {
-    pw_wrong.textContent="비밀번호를 확인해주세요."
-    pw_wrong.classList.remove('hidden')
+    // 비밀번호 동일
+    pw_wrong.classList.add('empty-text');
+  } else if (pw1.length > 0 && pw2.length > 0){
+    pw_wrong.classList.remove('empty-text');
   }
 }
 function fileChange(){
@@ -56,4 +54,10 @@ function filePreview(file){
     }
     reader.readAsDataURL(file);
   }
+}
+
+// pwFindResult("test")
+function pwFindResult(pw){
+  document.querySelector('.pw-return-box').classList.remove('empty-text');
+  document.querySelector('.pw-temp').textContent = pw;
 }

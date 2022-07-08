@@ -15,6 +15,9 @@
 }
 #weather.fixed {
     position: fixed;
+    left: 0;
+    right: auto;
+    transform: none;
 }
 #weather img {
     width: 80px;

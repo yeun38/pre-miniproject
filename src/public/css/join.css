@@ -3,8 +3,6 @@
 }
 .join .list-row {
     width: 80%;
-    margin: 0 auto;
-    justify-content: flex-start;
 }
 .join .left {
     font-size: 0.8em;
@@ -20,14 +18,34 @@
     color: orange;
 }
 .join .form-control,
-.join #date {
+.join #date,
+.join .right {
     width: 100%;
     max-width: 250px;
+}
+.join .right {
+    margin: 5px;
+    text-align: left;
+}
+.join .right * {
+    display: inline-block;
 }
 .join .role-btn {
     min-height: 30px;
     padding: 0 15px;
     border: 1px solid var(--accent-color);
     color: var(--accent-color);
+}
+@media (max-width: 500px) {
+    .join .form-control,
+    .join #date {
+        max-width: 100%;
+    }
+    .list-row > *,
+    .join .right {
+        flex: 0 0 100% !important;
+        margin: 0 !important;
+        max-width: none;
+    }
 }
 

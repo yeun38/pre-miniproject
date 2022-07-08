@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>투두리스트</title>
+    <title>O-Null: 오늘의 기록</title>
+    <link rel="shortcut icon" href="/icon/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap: CSS only -->
     <link
@@ -45,8 +46,7 @@
       <header>
         <div class="contents-area">
           <a href="/" class="logo">
-            <span class="material-icons"> home </span>
-            <span class="show-at-lg"> 로고 </span>
+            <span> O-Nul </span>
           </a>
           {% if user %}
           <div class="right">
@@ -59,9 +59,23 @@
               <div class="show-xs"><span>이름</span>님의 프로필</div>
             </a>
           </div>
+          {% else %}
+          <div class="right">
+            <a href="/">
+              로그인
+            </a>
+          </div>
           {% endif %}
         </div>
       </header>
+      <div class="main-banner">
+        <h5>
+          안녕하세요.<br>
+          <strong class="delay">오늘 O-Nul</strong>
+          <div class="show-at-sm"></div>
+          입니다.
+        </h5>
+      </div>
       <section class="login contents-area">
         <form class="list-form" action="/auth/login" method="post">
           <h1 class="title">Login</h1>
@@ -73,9 +87,10 @@
               name="email"
               class="form-control"
               autocomplete="off"
+              autofocus
             />
           </div>
-          <div class="list-row">
+          <div class="list-row" style="margin-bottom: 1em;">
             <label for="password" class="left">비밀번호 : </label>
             <input
               type="password"
@@ -86,11 +101,10 @@
             />
           </div>
           <!-- <div class="list-row">
-          <input id="remember" type="checkbox" name="remember"/>
-          <label for="remember">비밀번호를 기억합니다.</label>
-        </div> -->
-          <div class="list-row">
-            <a href="/find" class="find-password">비밀번호 찾기</a>
+            <input id="remember" type="checkbox" name="remember"/>
+            <label for="remember">비밀번호를 기억합니다.</label>
+          </div> -->
+          <div class="list-row btns-row" style="flex-wrap: wrap;">
             <input
               type="submit"
               onclick="require_info()"
@@ -98,9 +112,12 @@
               class="role-btn btn-submit"
             />
             <a href="/join">회원가입</a>
+            <a href="/find" class="find-password" style="flex: 0 0 100%">비밀번호 찾기</a>
           </div>
         </form>
       </section>
+      <footer>
+      </footer>
     </div>
 
     <script src="/js/login.js"></script>
