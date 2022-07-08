@@ -6,9 +6,10 @@ header {
 }
 
 header.fixed {
-    width: 100%;
+    width: calc(100vw - 16px);
     position: fixed;
     top: 0;
+    box-sizing: border-box;
     z-index: 99;
     box-shadow: var(--box-shadow);
 }
